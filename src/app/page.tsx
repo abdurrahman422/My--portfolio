@@ -1,39 +1,23 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import About from "@/components/About";
-import CoreExpertise from "@/components/CoreExpertise";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Experience from "@/components/Experience";
-import SystemArchitecture from "@/components/SystemArchitecture";
-import UIShowcase from "@/components/UIShowcase";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
-import Particles from "@/components/Particles";
-import BackToTop from "@/components/BackToTop";
-import CursorGlow from "@/components/CursorGlow";
+import Image from "next/image";
+import "./cinematic.css";
 
-export default function Home() {
-  return (
-    <main className="relative min-h-screen bg-background overflow-x-hidden">
-      <ScrollProgress />
-      <Particles />
-      <CursorGlow />
-      <Navbar />
-      <Hero />
-      <Stats />
-      <About />
-      <CoreExpertise />
-      <Skills />
-      <Projects />
-      <Experience />
-      <SystemArchitecture />
-      <UIShowcase />
-      <Contact />
-      <Footer />
-      <BackToTop />
-    </main>
-  );
-}
+const projects=[
+ ["NEXA AI","Desktop intelligence","/projects/nexa.png","https://github.com/abdurrahman422/nexa_ai","","A local-first AI assistant combining voice, chat, live answers, automation and permission-controlled desktop actions.","React · Electron · TypeScript · Python · FastAPI"],
+ ["StudyType AI","AI learning platform","/projects/studytype.png","https://github.com/abdurrahman422/StudyType-AI","https://study-type-ai.vercel.app","Written-recall examinations with semantic evaluation, telemetry, intelligent feedback and retention analytics.","TypeScript · React · Express · Gemini"],
+ ["BAUET Academic Ecosystem","Connected campus system","/projects/bauet.png","https://github.com/abdurrahman422/bauet-academic-ecosystem","https://bauet-academic-ecosystem.vercel.app","A connected platform for academic workflows, student services, management and digital campus operations.","JavaScript · Web Systems · Management"],
+ ["BossFeed","Business operations","/projects/bossfeed.png","https://github.com/abdurrahman422/BossFeed","","Feed-business management across inventory, products, users, orders, payments and administration.","PHP · MySQL · Web"],
+ ["Revive","Medicine reminder","/projects/revive.png","https://github.com/abdurrahman422/Revive","","A focused reminder experience designed around a clear everyday healthcare need.","Mobile · Product Design · Notifications"],
+ ["AR & M Enterprise","Industrial experience","/projects/portfolio.png","https://github.com/abdurrahman422/AR-M--Enterprise","","A modern digital presence for feed mill engineering and industrial solutions.","Next.js · TypeScript · Industrial Web"],
+ ["Licence Key Management","Secure developer tooling","/projects/license.png","https://github.com/abdurrahman422/Licence-key-management-","","A TypeScript system for controlled software licence creation, access and management.","TypeScript · Security · Tooling"]
+];
+
+export default function Home(){return <main className="cinema">
+ <header className="topbar"><a className="brand" href="#hero">AR.</a><nav><a href="#about">About</a><a href="#work">Projects</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#contact">Contact</a></nav><a className="outline" href="#contact">Let&apos;s talk ↗</a></header>
+ <section id="hero" className="hero"><video autoPlay muted loop playsInline poster="/images/hero-visual.png"><source src="/videos/anonymous-walk.mp4" type="video/mp4"/></video><div className="videoShade"/><div className="heroCopy"><p className="eyebrow">AI · SOFTWARE · INTELLIGENT SYSTEMS</p><h1>I BUILD<br/><em>INTELLIGENT</em><br/>EXPERIENCES</h1><p className="lead">I turn ambitious ideas into useful software—where thoughtful interfaces meet dependable engineering and applied intelligence.</p><div className="actions"><a className="goldButton" href="#work">Explore my work ↗</a><a className="textButton" href="/resume.pdf" target="_blank">Download résumé ↓</a></div></div><div className="signature"><span>Code is my craft.<br/>Impact is my goal.</span><strong>Abdur Rahman</strong></div><div className="scrollCue">SCROLL TO EXPLORE ↓</div></section>
+ <section id="about" className="section about"><div className="sectionTag">01 / PROFILE</div><div className="aboutGrid"><div className="portrait"><Image src="/images/about-visual.png" alt="Abdur Rahman portfolio portrait" fill sizes="(max-width: 800px) 100vw, 42vw"/></div><div><p className="kicker">THE ENGINEER BEHIND THE SYSTEM</p><h2>Software with purpose.<br/><i>Intelligence with direction.</i></h2><p>I&apos;m Abdur Rahman, a final-year Computer Science &amp; Engineering student at Bangladesh Army University of Engineering &amp; Technology (BAUET). I build AI assistants, automation tools, full-stack products, mobile experiences and management systems.</p><p>My background includes industry internship exposure, graphic design training sessions, freelance work and practical client projects—experience that connects engineering decisions with real user needs.</p><div className="metrics"><span><b>07</b>Featured systems</span><span><b>AI</b>Primary focus</span><span><b>Final</b>Academic year</span></div></div></div></section>
+ <section id="work" className="section work"><div className="sectionTag">02 / SELECTED WORK</div><p className="kicker">ARCHIVE OF BUILT SYSTEMS</p><h2>Projects that move from<br/><i>idea to operation.</i></h2><div className="projectStack">{projects.map((p,i)=><article className="project" key={p[0]} style={{top:`${76+i*7}px`}}><div className="projectImage"><Image src={p[2]} alt={`${p[0]} preview`} fill sizes="(max-width: 800px) 100vw, 55vw"/></div><div className="projectInfo"><span>CASE FILE / {String(i+1).padStart(2,"0")}</span><h3>{p[0]}</h3><h4>{p[1]}</h4><p>{p[5]}</p><code>{p[6]}</code><div><a href={p[3]} target="_blank">Repository ↗</a>{p[4]&&<a href={p[4]} target="_blank">Live site ↗</a>}</div></div></article>)}</div></section>
+ <section id="skills" className="section"><div className="sectionTag">03 / CAPABILITIES</div><p className="kicker">TECHNOLOGY MATRIX</p><h2>An adaptable stack for<br/><i>complete products.</i></h2><div className="bento">{[["AI & AUTOMATION","Python, Gemini, PyTorch, TensorFlow, OpenCV, intelligent workflows"],["FRONTEND","React, Next.js, TypeScript, JavaScript, Tailwind CSS"],["BACKEND","Node.js, Express, FastAPI, REST APIs, authentication"],["DATA","MySQL, PostgreSQL, SQLite, Firebase, data modelling"],["PRODUCT & DESIGN","Figma, UI/UX, graphic design, prototyping, system planning"],["DELIVERY","Git, GitHub, Docker, Linux, Vercel, documentation"]].map(([a,b])=><div key={a}><small>ACTIVE DOMAIN</small><h3>{a}</h3><p>{b}</p></div>)}</div></section>
+ <section id="journey" className="section journey"><div className="sectionTag">04 / JOURNEY</div><p className="kicker">EXPERIENCE & FOUNDATION</p><h2>Learning by building.<br/><i>Growing through practice.</i></h2><div className="timeline"><div><b>Present</b><h3>Final-Year CSE Student</h3><p>Bangladesh Army University of Engineering &amp; Technology (BAUET)</p></div><div><b>Industry</b><h3>Software Internship Experience</h3><p>Professional workflows, collaboration, practical software tasks and delivery.</p></div><div><b>Creative</b><h3>Graphic Design Training & Sessions</h3><p>Visual communication, interface composition and design-led problem solving.</p></div><div><b>Independent</b><h3>Freelance & Client Projects</h3><p>Software and design engagements shaped by real requirements, feedback and deadlines.</p></div></div></section>
+ <section id="contact" className="section contact"><p className="kicker">MONOLITH DISPATCH TERMINAL</p><h2>Have a useful problem?<br/><i>Let&apos;s build the answer.</i></h2><div className="contactGrid"><div><p>For collaborations, product ideas, AI systems, web applications and freelance work.</p><a className="goldButton" href="mailto:abdurrahman422488@gmail.com?subject=Portfolio%20inquiry">Send an email ↗</a><a className="whatsapp" href="https://wa.me/8801762531330" target="_blank">WhatsApp ↗</a></div><div className="channels"><a href="https://github.com/abdurrahman422">GitHub ↗</a><a href="https://www.linkedin.com/in/abdurrahman422/">LinkedIn ↗</a><a href="https://www.instagram.com/abdurrahmanboss2">Instagram ↗</a><a href="https://www.threads.com/@abdurrahmanboss2">Threads ↗</a><a href="https://www.facebook.com/abdurrahman422">Facebook ↗</a><a href="mailto:abdurrahman422487@gmail.com">Secondary email ↗</a></div></div></section>
+ <footer><span>© 2026 Abdur Rahman</span><strong>Abdur Rahman</strong><a href="#hero">Back to top ↑</a></footer>
+ </main>}

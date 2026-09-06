@@ -21,14 +21,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "MD. ABDUR RAHMAN | AI System Designer & Engineer",
+  title: "Abdur Rahman | AI & Software Engineer",
   description:
-    "Portfolio of MD. ABDUR RAHMAN — AI System Designer from Bangladesh, specializing in intelligent assistant architectures, voice AI systems, database design, and futuristic UI/UX. Explore projects in automation, healthcare systems, crisis response, and machine learning.",
+    "Cinematic portfolio of Abdur Rahman, an AI and Software Engineer building intelligent assistants, automation tools, full-stack applications and practical digital systems.",
   keywords: [
     "AI Engineer",
     "System Designer",
     "Portfolio",
-    "MD. ABDUR RAHMAN",
+    "Abdur Rahman",
     "Bangladesh",
     "React",
     "Next.js",
@@ -41,20 +41,20 @@ export const metadata: Metadata = {
     "MySQL",
     "System Architecture",
   ],
-  authors: [{ name: "MD. ABDUR RAHMAN" }],
-  creator: "MD. ABDUR RAHMAN",
+  authors: [{ name: "Abdur Rahman" }],
+  creator: "Abdur Rahman",
   openGraph: {
-    title: "MD. ABDUR RAHMAN | AI System Designer & Engineer",
+    title: "Abdur Rahman | AI & Software Engineer",
     description:
       "AI System Designer from Bangladesh, specializing in intelligent assistant architectures, voice AI systems, database design, and futuristic UI/UX.",
-    url: "https://abdurrahman.dev",
-    siteName: "MD. ABDUR RAHMAN",
+    url: "https://my-portfolio-eight-sigma-wm5wq9rsei.vercel.app",
+    siteName: "Abdur Rahman",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MD. ABDUR RAHMAN | AI System Designer",
+    title: "Abdur Rahman | AI & Software Engineer",
     description:
       "AI System Designer from Bangladesh specializing in intelligent assistant architectures, voice AI, and machine learning systems.",
   },
