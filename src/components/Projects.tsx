@@ -156,8 +156,8 @@ export default function Projects() {
             {projects.map((project, index) => (
               <article
                 key={project.title}
-                className={`project-ai-card sticky overflow-hidden rounded-2xl border border-white/[0.09] bg-[#090912]/95 shadow-[0_-24px_70px_rgba(0,0,0,0.72)] backdrop-blur-xl ${index === projects.length - 1 ? "mb-8" : "mb-[52vh]"}`}
-                style={{ top: "88px", zIndex: index + 1 }}
+                className="project-ai-card sticky mb-[42px] overflow-hidden rounded-2xl border border-white/[0.09] bg-[#090912]/95 shadow-[0_-24px_70px_rgba(0,0,0,0.72)] backdrop-blur-xl"
+                style={{ top: `${76 + index * 7}px`, zIndex: index + 1 }}
               >
                 <div className={`h-px w-full bg-gradient-to-r ${project.gradient}`} />
                 <div className="grid min-h-[430px] lg:grid-cols-[1.08fr_0.92fr]">
