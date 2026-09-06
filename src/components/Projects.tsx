@@ -156,8 +156,8 @@ export default function Projects() {
             {projects.map((project, index) => (
               <article
                 key={project.title}
-                className="sticky mb-8 overflow-hidden rounded-2xl border border-white/[0.09] bg-[#090912]/95 shadow-[0_-18px_50px_rgba(0,0,0,0.45)] backdrop-blur-xl"
-                style={{ top: `${72 + index * 7}px`, zIndex: index + 1 }}
+                className={`project-ai-card sticky overflow-hidden rounded-2xl border border-white/[0.09] bg-[#090912]/95 shadow-[0_-24px_70px_rgba(0,0,0,0.72)] backdrop-blur-xl ${index === projects.length - 1 ? "mb-8" : "mb-[52vh]"}`}
+                style={{ top: "88px", zIndex: index + 1 }}
               >
                 <div className={`h-px w-full bg-gradient-to-r ${project.gradient}`} />
                 <div className="grid min-h-[430px] lg:grid-cols-[1.08fr_0.92fr]">
@@ -170,6 +170,10 @@ export default function Projects() {
                       sizes="(max-width: 1024px) 100vw, 55vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#090912] max-lg:bg-gradient-to-t" />
+                    <div className="project-scan absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-70 shadow-[0_0_18px_#22d3ee]" />
+                    <div className="absolute bottom-5 left-5 font-mono text-[9px] tracking-[0.2em] text-cyan-300/55">
+                      VISUAL FEED // {String(index + 1).padStart(2, "0")}
+                    </div>
                     <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-cyan-400/20 bg-black/55 px-3 py-1.5 font-mono text-[9px] tracking-[0.2em] text-cyan-300 backdrop-blur-md">
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]" />
                       SYSTEM ONLINE
@@ -177,6 +181,8 @@ export default function Projects() {
                   </div>
 
                   <div className="relative flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                    <span className="absolute left-4 top-4 h-5 w-5 border-l border-t border-cyan-400/35" />
+                    <span className="absolute bottom-4 right-4 h-5 w-5 border-b border-r border-purple-400/35" />
                     <div className="absolute right-7 top-7 font-mono text-5xl font-black text-white/[0.035]">
                       {String(index + 1).padStart(2, "0")}
                     </div>

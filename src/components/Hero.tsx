@@ -236,6 +236,18 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
+          initial={{ opacity: 0, x: -24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="hero-signature absolute bottom-12 left-8 hidden text-left xl:block"
+        >
+          <span className="mb-4 block font-mono text-[10px] uppercase leading-relaxed tracking-[0.24em] text-gray-400">
+            Code is my craft.<br />Impact is my goal.
+          </span>
+          <strong>Abdur Rahman</strong>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
