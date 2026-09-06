@@ -397,4 +397,11 @@
     .project-scan,
     .hero-signature strong { animation: none; }
   }
+
+  @media (max-width: 767px) {
+    .project-ai-card {
+      position: relative !important;
+      top: auto !important;
+    }
+  }
 }

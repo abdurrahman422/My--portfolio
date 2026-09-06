@@ -3,10 +3,9 @@
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowRight, Bot, CheckCircle2, Cpu, ExternalLink, Radio, Sparkles } from "lucide-react";
+import { ArrowRight, Bot, Cpu, ExternalLink, Radio, Sparkles } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 import ProjectModal from "./ProjectModal";
-import SectionWrapper from "./SectionWrapper";
 
 interface ProjectFeature { text: string }
 interface Project {
@@ -123,7 +122,7 @@ export default function Projects() {
 
   return (
     <>
-      <SectionWrapper id="projects" className="section-padding relative">
+      <section id="projects" className="section-padding relative overflow-visible">
         <div className="absolute inset-0 grid-bg opacity-20" />
         <div className="absolute left-1/2 top-32 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-purple-600/[0.07] blur-[120px]" />
 
@@ -156,37 +155,18 @@ export default function Projects() {
             {projects.map((project, index) => (
               <article
                 key={project.title}
-                className="project-ai-card sticky mb-[42px] overflow-hidden rounded-2xl border border-white/[0.09] bg-[#090912]/95 shadow-[0_-24px_70px_rgba(0,0,0,0.72)] backdrop-blur-xl"
-                style={{ top: `${76 + index * 7}px`, zIndex: index + 1 }}
+                className="project-ai-card sticky mb-[30px] overflow-hidden rounded-xl border border-white/[0.09] bg-[#090912]/95 shadow-[0_-24px_70px_rgba(0,0,0,0.72)] backdrop-blur-xl"
+                style={{ top: `${82 + index * 8}px`, zIndex: index + 1 }}
               >
                 <div className={`h-px w-full bg-gradient-to-r ${project.gradient}`} />
-                <div className="grid min-h-[430px] lg:grid-cols-[1.08fr_0.92fr]">
-                  <div className="group relative min-h-[260px] overflow-hidden lg:min-h-full">
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} system interface`}
-                      fill
-                      className="object-cover opacity-75 transition duration-700 group-hover:scale-[1.03] group-hover:opacity-90"
-                      sizes="(max-width: 1024px) 100vw, 55vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#090912] max-lg:bg-gradient-to-t" />
-                    <div className="project-scan absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-70 shadow-[0_0_18px_#22d3ee]" />
-                    <div className="absolute bottom-5 left-5 font-mono text-[9px] tracking-[0.2em] text-cyan-300/55">
-                      VISUAL FEED // {String(index + 1).padStart(2, "0")}
-                    </div>
-                    <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-cyan-400/20 bg-black/55 px-3 py-1.5 font-mono text-[9px] tracking-[0.2em] text-cyan-300 backdrop-blur-md">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]" />
-                      SYSTEM ONLINE
-                    </div>
-                  </div>
-
+                <div className="grid min-h-[340px] lg:grid-cols-[1.15fr_0.85fr]">
                   <div className="relative flex flex-col justify-center p-6 sm:p-8 lg:p-10">
                     <span className="absolute left-4 top-4 h-5 w-5 border-l border-t border-cyan-400/35" />
                     <span className="absolute bottom-4 right-4 h-5 w-5 border-b border-r border-purple-400/35" />
                     <div className="absolute right-7 top-7 font-mono text-5xl font-black text-white/[0.035]">
                       {String(index + 1).padStart(2, "0")}
                     </div>
-                    <div className="mb-5 flex items-center justify-between">
+                    <div className="mb-4 flex items-center justify-between">
                       <span className="font-mono text-[10px] tracking-[0.22em] text-purple-300">
                         CASE FILE / {String(index + 1).padStart(2, "0")}
                       </span>
@@ -201,16 +181,8 @@ export default function Projects() {
                       <span className="font-mono text-[10px] tracking-[0.16em]">{project.label}</span>
                     </div>
                     <h3 className="mb-3 text-2xl font-bold text-white sm:text-3xl">{project.title}</h3>
-                    <p className="mb-5 text-sm leading-relaxed text-gray-400">{project.description}</p>
-                    <div className="mb-6 grid grid-cols-2 gap-2">
-                      {project.features.map((feature) => (
-                        <div key={feature.text} className="flex items-center gap-2 text-[11px] text-gray-400">
-                          <CheckCircle2 className="h-3 w-3 shrink-0 text-cyan-500" />
-                          {feature.text}
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mb-6 flex flex-wrap gap-1.5">
+                    <p className="mb-4 max-w-xl text-sm leading-relaxed text-gray-400">{project.description}</p>
+                    <div className="mb-5 flex flex-wrap gap-1.5">
                       {project.tech.map((tech) => (
                         <span key={tech} className="rounded-md border border-purple-400/15 bg-purple-500/[0.07] px-2 py-1 font-mono text-[9px] text-purple-200/80">
                           {tech}
@@ -231,12 +203,32 @@ export default function Projects() {
                       </button>
                     </div>
                   </div>
+
+                  <div className="group relative min-h-[240px] overflow-hidden lg:min-h-full">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} system interface`}
+                      fill
+                      className="object-cover opacity-75 transition duration-700 group-hover:scale-[1.03] group-hover:opacity-90"
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#090912] via-transparent to-transparent max-lg:bg-gradient-to-t" />
+                    <div className="project-scan absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-70 shadow-[0_0_18px_#22d3ee]" />
+                    <div className="absolute bottom-5 left-5 font-mono text-[9px] tracking-[0.2em] text-cyan-300/55">
+                      VISUAL FEED // {String(index + 1).padStart(2, "0")}
+                    </div>
+                    <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-cyan-400/20 bg-black/55 px-3 py-1.5 font-mono text-[9px] tracking-[0.2em] text-cyan-300 backdrop-blur-md">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]" />
+                      SYSTEM ONLINE
+                    </div>
+                  </div>
+
                 </div>
               </article>
             ))}
           </div>
         </div>
-      </SectionWrapper>
+      </section>
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </>
